@@ -2,6 +2,8 @@ import React from "react"
 import ReactDOM from "react-dom";
 import moment from "moment"
 
+import PersonList from './PersonList'
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -11,7 +13,7 @@ class App extends React.Component {
 
     launchClock() {
         setInterval(()=> {
-            console.log('Updating time...')
+            // console.log('Updating time...')
             this.setState({
                 clock: moment().format('LTS')
             })
@@ -19,10 +21,11 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('Rendering Clock...')
+        // console.log('Rendering Clock...')
         return (
             <div>
                 <p>{this.state.clock}</p>
+                <PersonList />
             </div>
         )}
     }
