@@ -1,32 +1,55 @@
-import React from "react"
-import ReactDOM from "react-dom";
-import moment from "moment"
+/* Import statements */
+import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+import Clock from './Clock'
 
+/* Home component */
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+/* Category component */
+const Category = () => (
+  <div>
+    <h2>Category</h2>
+  </div>
+)
+
+/* Products component */
+const Products = () => (
+  <div>
+    <h2>Products</h2>
+  </div>
+)
+
+/* App component */
 class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.launchClock()
-        this.state = {clock: moment().format("LTS")}
-    }
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-light">
+          <ul className="nav navbar-nav">
 
-    launchClock() {
-        setInterval(()=> {
-            console.log('Updating time...')
-            this.setState({
-                clock: moment().format('LTS')
-            })
-        }, 1000)
-    }
+          
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/category">Category</Link></li>
+            <li><Link to="/clock">Clock!</Link></li>
 
-    render() {
-        console.log('Rendering Clock...')
-        return (
-            <div>
-                <p>{this.state.clock}</p>
-            </div>
-        )}
-    }
-ReactDOM.render(<App />, document.getElementById("app"))
+          </ul>
+         </nav>
 
-export default App;
+           
+         <Switch>
+         <Route exact path="/" component={Home}/>
+         <Route path="/category" component={Category}/>
+          <Route path="/clock" component={Clock}/>
+       </Switch>
 
+      </div>
+    )
+  }
+}
+
+export default App
