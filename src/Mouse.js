@@ -26,8 +26,8 @@ import React from 'react';
 const Mouse = (props) => (
     <button
         onClick={props.handler}
-        className="btn btn-danger">
-        Increase Volume (Current Volume is {props.counter})
+        className="btn btn-outline-info btn-sm">
+        Increase Volume <em>(Current Volume is {props.counter})</em>
     </button>
 );
 
